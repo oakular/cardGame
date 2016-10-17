@@ -4,12 +4,11 @@ public class Attribute {
 	
 	private final String A_NAME;
 	private final int VAL;
-	private Random rand = new Random();
 	
-	public Attribute(String aName){
+	public Attribute(String aName, int val){
 		this.A_NAME = aName;
-		VAL = rand.nextInt(9) + 0;
-	}
+		this.VAL = val;	
+		}
 	
 	int getVal(){
 		return VAL;

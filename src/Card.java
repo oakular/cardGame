@@ -1,3 +1,5 @@
+import java.util.Random;
+
 class Card {
     
     private final String NAME;
@@ -16,18 +18,20 @@ class Card {
     
     void setAttr(int attrNum, String gameType){
         String[] attrName = new String[attrNum];
+        Random rand = new Random();
 
     	if(gameType == "dnd"){
     		attrName[0] = "STR";
-    		attrName[0] = "DEX";
-    		attrName[0] = "CON";
-    		attrName[0] = "INT";
-    		attrName[0] = "WIS";
-    		attrName[0] = "CHA";
+    		attrName[1] = "DEX";
+    		attrName[2] = "CON";
+    		attrName[3] = "INT";
+    		attrName[4] = "WIS";
+    		attrName[5] = "CHA";
     	}
 
         for(int i = 0; i < attrNum; i++){
-        	attrArray[i] = new Attribute(attrName[i]);
+        	int val = rand.nextInt(9) + 0;
+        	attrArray[i] = new Attribute(attrName[i], val);
         }
     }
 

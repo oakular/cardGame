@@ -20,6 +20,7 @@ class Game {
     
     void createCard(){
     	Card card1 = new Card("Tiamat", 6, "dnd");
+    	Card card2 = new Card("Drizzt", 6, "dnd");
     }
     
     public void playRound(){

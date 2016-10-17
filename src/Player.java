@@ -2,9 +2,9 @@
 public class Player {
     
     private final String P_NAME;
-    private Card[] deck;
-    private static int bottom;
-    private static int top;
+    protected Card[] deck;
+    protected static int bottom;
+    protected static int top;
     
     public Player(String pName){
         this.P_NAME = pName;
@@ -13,13 +13,13 @@ public class Player {
     void addToDeck(Card cardToAdd){
         deck[bottom] = cardToAdd;
     }
-    Card delFromDeck(Card cardToDel){
-        cardToDel = deck[top];
+    Card delFromDeck(){
+        Card cardToDel = deck[top];
         return cardToDel;
     }
 
-    String getPName();
+    String getPName(){
+    	return P_NAME;
+    }
     
-    
-        
 }

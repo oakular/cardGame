@@ -1,27 +1,17 @@
 
-public class Human implements Player {
+public class Human extends Player {
 
-	private Card[] deck;
-	private int bottom;
-	private int top;
-
-	@Override
-	public void addToDeck() {
-		Card cardToAdd = Game.getCard();
-		deck[bottom] = cardToAdd;
-
+	public Human(String pName) {
+		super(pName);
+		// TODO Auto-generated constructor stub
 	}
+	
+    void addToDeck(Card cardToAdd){
+        deck[bottom] = cardToAdd;
+    }
 
-	@Override
-	public void delFromDeck() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public String getPName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+    Card delFromDeck(){
+        Card cardToDel = deck[top];
+        return cardToDel;
+    }
 }
