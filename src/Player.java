@@ -1,7 +1,7 @@
 
 public class Player {
     
-    private final String P_NAME;
+    protected final String P_NAME;
     protected Card[] deck;
     protected static int bottom;
     protected static int top;

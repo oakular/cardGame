@@ -1,11 +1,11 @@
 
-public class Human extends Player {
+public class RandomComputer extends Player {
 
-	public Human(String pName) {
+	public RandomComputer(String pName) {
 		super(pName);
 		// TODO Auto-generated constructor stub
 	}
-	
+
     void addToDeck(Card cardToAdd){
         deck[bottom] = cardToAdd;
     }
