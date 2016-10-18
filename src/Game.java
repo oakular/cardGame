@@ -1,14 +1,14 @@
+// ------ IMPORT STATEMENTS ------
 import java.util.Scanner;
-
 
 class Game {
     
+	// -------- FIELDS ---------
     private Human hPlayer;
     private RandomComputer comp;
     private Scanner uInput = new Scanner(System.in);
     
     public Game(){
-    	
     }
 
     public void startGame(){
@@ -32,6 +32,8 @@ class Game {
             comp = new RandomComputer("Comp");
         }
             
+        createCard();
+        playRound();
     }
     
     void createCard(){

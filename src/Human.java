@@ -1,6 +1,7 @@
 
 public class Human extends Player {
 
+	// ----- CONSTRUCTOR -----
 	public Human(String pName) {
 		super(pName);
 		// TODO Auto-generated constructor stub
@@ -15,7 +16,4 @@ public class Human extends Player {
         return cardToDel;
     }
 
-    String getPName(){
-    	return P_NAME;
-    }
 }
