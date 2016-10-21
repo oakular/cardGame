@@ -37,12 +37,19 @@ class Card {
 
         for(int i = 0; i < attrNum; i++){
         	int val = rand.nextInt(9) + 0;
-        	attrArray[i] = new Attribute(attrName[i], val);
+        	attrArray[i] = new Attribute(i, attrName[i], val);
         } // end of for loop
     } // end of setAttr() method
 
-    // ----- method to return a specfic attribute
+    // ----- method to return a specific attribute
     public Attribute getAttr(int attr){
         return attrArray[attr];
     } // end of getAttr() method
+    
+    // ----- method override to print Card Name
+    // in specified format
+    @Override
+    public String toString(){
+    	return (NAME);
+    } // end of toString() method
 } // end of Card class
