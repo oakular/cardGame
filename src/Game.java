@@ -20,7 +20,11 @@ class Game {
         pName = uInput.nextLine();
         
         hPlayer = new Human(pName);
-        
+
+        System.out.println("Welcome " + hPlayer.getPName() + "\n");
+
+        delay(2000);
+
         System.out.println("Which Computer Player Will Be Your Opponent?");
         System.out.println("1. Easy Difficulty");
         System.out.println("2. Medium Difficulty");
@@ -44,6 +48,8 @@ class Game {
 
             
         createCard();
+        
+        delay(2000);
 
 		System.out.println("\n----- START GAME -----\n");
 		playRound(0);
@@ -84,22 +90,28 @@ class Game {
 		hPlayer.deck.forEach(System.out::println);
 		System.out.println("------------------\n");
 		
+		delay(2000);
+		
 		// Take cards from player and computer's decks
     	Card hCard = hPlayer.deck.remove();
     	Card cCard = comp.deck.remove();
     	
     	// print the player's card name and attributes
     	printCard(hCard);
+    	
+    	delay(2000);
 
     	// check whose turn it is
     	if(roundNum % 2 == 0){
     		choice = hPlayer.chooseAttr();
 			choice--;		// make choice reference array position
 		}else{
+			System.out.println(comp.getPName() + " is choosing...");
 			delay(3000);
 			if(comp instanceof SmartComputer)
 				comp.getCurrentCard(cCard);
 			choice = comp.chooseAttr();
+			System.out.println(comp.getPName() + " chose Attr: " + choice);
 		} // end of if-else statement
 
 
@@ -147,7 +159,7 @@ class Game {
 		} // end of CARD COMPARISON		   	
 		
 		System.out.println("\n------------------");
-		delay(5000);
+		delay(3000);
     } // end of compare() method
     
     private static void delay(int millis){

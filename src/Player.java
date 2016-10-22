@@ -24,7 +24,12 @@ public class Player extends LinkedList{
 
     public int chooseAttr(){
     	Scanner attrChoice = new Scanner(System.in);
+
+    	do{
     	System.out.print("\nChoose an Attribute No: ");
+    	attrChoice.nextInt();
+    	}while(attrChoice.nextInt() > 6 || attrChoice.nextInt() < 1);
+    	
 		return attrChoice.nextInt();
     } // end of chooseAttr() method
     // ----- method to return player name
