@@ -1,4 +1,4 @@
-/*  Author: Callum Warrilow (20106703)
+/*  Author: Callum Warrilow (201068703)
  *  Class Desc: MultiPlayer implementation of Game class to
  *  play Card game between several human and computer players.
  *  Date: 5/11/16
@@ -7,7 +7,9 @@
 // ------ IMPORT STATEMENTS ------
 import java.util.Scanner;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 class MultiPlayerGame implements Game {
 
@@ -32,6 +34,7 @@ class MultiPlayerGame implements Game {
         cNum = uInput.nextInt();
 
         addPlayers(pNum, cNum);
+        createCard();
 
         return 0;
     } // end of startGame() method
@@ -78,21 +81,28 @@ class MultiPlayerGame implements Game {
 
     //----- method to create cards and assign them to decks
     private void createCard(){
-        Card[] cardDealer = new Card[10];
-        cardDealer[0] = new Card("Tiamat", 6, "dnd");
-        cardDealer[1] = new Card("Drizzt Do'Urden", 6, "dnd");
-        cardDealer[2] = new Card("Acercerak", 6, "dnd");
-        cardDealer[3] = new Card("Bruenor", 6, "dnd");
-        cardDealer[4] = new Card("Akar Kessel", 6, "dnd");
-        cardDealer[5] = new Card("King Snurre", 6, "dnd");
-        cardDealer[6] = new Card("Count Von Strahd", 6, "dnd");
-        cardDealer[7] = new Card("Xanathar", 6, "dnd");
-        cardDealer[8] = new Card("Wulfgar", 6, "dnd");
-        cardDealer[9] = new Card("Regis", 6, "dnd");
+        CopyOnWriteArrayList<Card> cardList = new CopyOnWriteArrayList<>();
+        Iterator<Card> cardDealer = cardList.iterator();
 
-        for(int i = 0; i < 10; i++){
-            hPlayer.deck.add(cardDealer[i]);
-            comp.deck.add(cardDealer[++i]);
-        } // end of for loop
+        cardList.add(new Card("Tiamat", 6, "dnd"));
+        cardList.add(new Card("Drizzt Do'Urden", 6, "dnd"));
+        cardList.add(new Card("Acercerak", 6, "dnd"));
+        cardList.add(new Card("Bruenor", 6, "dnd"));
+        cardList.add(new Card("Akar Kessel", 6, "dnd"));
+        cardList.add(new Card("King Snurre", 6, "dnd"));
+        cardList.add(new Card("Count Von Strahd", 6, "dnd"));
+        cardList.add(new Card("Xanathar", 6, "dnd"));
+        cardList.add(new Card("Wulfgar", 6, "dnd"));
+        cardList.add(new Card("Regis", 6, "dnd"));
+
+        while(cardDealer.hasNext()){
+            Card cardToDeal = cardDealer.next();
+            for(Player playerToDeal : players){
+                playerToDeal.deck.add(cardToDeal);
+                cardDealer.remove();
+            } // end of for loop
+        } // end of while loop
+
+        players.get(0).deck.forEach(System.out::println);
     } // end of createCard() method
 } // end of MultiPlayerGame Class

@@ -22,7 +22,6 @@ public class Player extends LinkedList{
         this.P_NAME = pName;
 
         deck = new LinkedList<Card>();
-//        deck = new Card[deckSize];
     } // end of CONSTRUCTOR
 
     void getCurrentCard(Card current){
