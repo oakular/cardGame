@@ -18,13 +18,29 @@ class SinglePlayerGame implements Game {
     public SinglePlayerGame(){
     } // end of CONSTRUCTOR
 
+    // ---- method to create players and ask for
+    // computer difficulty
     public int startGame(){
         String pName;
 
-        System.out.println("----- Welcome to Card Game -----");
         System.out.print("Please Enter Your Name: ");
         pName = uInput.nextLine();
 
+        addPlayers(pName);
+
+        createCard();
+
+        delay(2000);
+
+        System.out.println("\n----- START GAME -----\n");
+        playRound(0);
+
+        uInput.close();
+
+        return 0;
+    } // end of startGame() method
+
+    private void addPlayers(String pName){
         hPlayer = new Human(pName);
 
         System.out.println("Welcome " + hPlayer.getPName() + "\n");
@@ -50,19 +66,8 @@ class SinglePlayerGame implements Game {
             SmartComputer smartComp = new SmartComputer("COMP");
             comp = smartComp;
             break;
-        }
-
-        createCard();
-
-        delay(2000);
-
-        System.out.println("\n----- START GAME -----\n");
-        playRound(0);
-
-        uInput.close();
-
-        return 0;
-    } // end of startGame() method
+        } // end of switch statement
+    } // end of addPlayers() method
 
     //----- method to create cards and assign them to decks
     private void createCard(){

@@ -3,13 +3,32 @@
  *  game.
  *  Date: 5/11/16
  */
+
+import java.util.Scanner;
+
 public class Main {
 
-	// ----------- MAIN METHOD ------------
-	public static void main(String[] args){
+    // ----------- MAIN METHOD ------------
+    public static void main(String[] args){
 
-		// create game object and start game
-		SinglePlayerGame game = new SinglePlayerGame();
-		game.startGame();
-	} // end of main() method
+        Scanner gameTypeInput = new Scanner(System.in);
+        Game game;
+
+        System.out.println("----- Welcome to Card Game -----");
+        System.out.println("Single Player or Multiplayer: ");
+        System.out.println("1. Single Player");
+        System.out.println("2. Multiplayer");
+        int gameType = gameTypeInput.nextInt();
+
+        if(gameType == 1){
+            game = new SinglePlayerGame();
+        }else{
+            game = new MultiPlayerGame();
+        }
+
+        // create game object and start game
+        game.startGame();
+
+        gameTypeInput.close();
+    } // end of main() method
 } // end of Main Class
