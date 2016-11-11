@@ -1,4 +1,8 @@
-
+/*  Author: Callum Warrilow (20106703)
+ *  Class Desc: Main Class of Card Game to instantiate new
+ *  game.
+ *  Date: 5/11/16
+ */
 public class Main {
 
 	// ----------- MAIN METHOD ------------

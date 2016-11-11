@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A_NAME	Attribute.java	/^	private final String A_NAME;$/;"	f	class:Attribute	file:
+A_NUM	Attribute.java	/^	private final int A_NUM;$/;"	f	class:Attribute	file:
+Attribute	Attribute.java	/^	public Attribute(int aNum, String aName, int val){$/;"	m	class:Attribute
+Attribute	Attribute.java	/^public class Attribute {$/;"	c
+Card	Card.java	/^    public Card(String name, int attrNum, String gameType){$/;"	m	class:Card
+Card	Card.java	/^class Card {$/;"	c
+Game	Game.java	/^    public Game(){$/;"	m	class:Game
+Game	Game.java	/^class Game {$/;"	c
+Human	Human.java	/^	public Human(String pName) {$/;"	m	class:Human
+Human	Human.java	/^public class Human extends Player {$/;"	c
+Main	Main.java	/^public class Main {$/;"	c
+NAME	Card.java	/^    private final String NAME;$/;"	f	class:Card	file:
+P_NAME	Player.java	/^    protected final String P_NAME;$/;"	f	class:Player
+Player	Player.java	/^    public Player(String pName){$/;"	m	class:Player
+Player	Player.java	/^public class Player extends LinkedList{$/;"	c
+RandomComputer	RandomComputer.java	/^	public RandomComputer(String pName) {$/;"	m	class:RandomComputer
+RandomComputer	RandomComputer.java	/^public class RandomComputer extends Player {$/;"	c
+SmartComputer	SmartComputer.java	/^	public SmartComputer(String pName) {$/;"	m	class:SmartComputer
+SmartComputer	SmartComputer.java	/^class SmartComputer extends Player {$/;"	c
+VAL	Attribute.java	/^	private final int VAL;$/;"	f	class:Attribute	file:
+attrArray	Card.java	/^    private Attribute[] attrArray;$/;"	f	class:Card	file:
+bottom	Player.java	/^    protected static int bottom = 0;$/;"	f	class:Player
+chooseAttr	Player.java	/^    public int chooseAttr(){$/;"	m	class:Player
+chooseAttr	RandomComputer.java	/^	public int chooseAttr(){$/;"	m	class:RandomComputer
+chooseAttr	SmartComputer.java	/^	public int chooseAttr(){$/;"	m	class:SmartComputer
+comp	Game.java	/^    private Player comp;$/;"	f	class:Game	file:
+compare	Game.java	/^    private void compare(Card hCard, Card cCard, int choice){$/;"	m	class:Game	file:
+createCard	Game.java	/^    private void createCard(){$/;"	m	class:Game	file:
+current	SmartComputer.java	/^	private Card current;$/;"	f	class:SmartComputer	file:
+deck	Player.java	/^    protected Queue<Card> deck;$/;"	f	class:Player
+deckSize	Player.java	/^    protected int deckSize;$/;"	f	class:Player
+delay	Game.java	/^    private static void delay(int millis){$/;"	m	class:Game	file:
+getAttr	Card.java	/^    public Attribute getAttr(int attr){$/;"	m	class:Card
+getAttrNum	Attribute.java	/^	int getAttrNum(){$/;"	m	class:Attribute
+getCurrentCard	Player.java	/^    void getCurrentCard(Card current){$/;"	m	class:Player
+getCurrentCard	SmartComputer.java	/^	void getCurrentCard(Card current){$/;"	m	class:SmartComputer
+getName	Card.java	/^    public String getName(){$/;"	m	class:Card
+getPName	Player.java	/^    String getPName(){$/;"	m	class:Player
+getVal	Attribute.java	/^	int getVal(){$/;"	m	class:Attribute
+hPlayer	Game.java	/^    private Human hPlayer;$/;"	f	class:Game	file:
+main	Main.java	/^	public static void main(String[] args){$/;"	m	class:Main
+playRound	Game.java	/^    private void playRound(int roundNum){$/;"	m	class:Game	file:
+printCard	Game.java	/^    private void printCard(Card hCard){$/;"	m	class:Game	file:
+setAttr	Card.java	/^    void setAttr(int attrNum, String gameType){$/;"	m	class:Card
+startGame	Game.java	/^	int startGame(){$/;"	m	class:Game
+toString	Attribute.java	/^	public String toString(){$/;"	m	class:Attribute
+toString	Card.java	/^    public String toString(){$/;"	m	class:Card
+top	Player.java	/^    protected static int top;$/;"	f	class:Player
+uInput	Game.java	/^    private Scanner uInput = new Scanner(System.in);$/;"	f	class:Game	file:

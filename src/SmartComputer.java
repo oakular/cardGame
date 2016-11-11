@@ -1,6 +1,10 @@
-
+/*  Author: Callum Warrilow (20106703)
+ *  Class Desc: SmartComputer subclass of Player that implements methods
+ *  in Player superclass.
+ *  Date: 5/11/16
+ */
 class SmartComputer extends Player {
-	
+
 	private Card current;
 
 	public SmartComputer(String pName) {
@@ -9,14 +13,14 @@ class SmartComputer extends Player {
 
 	void getCurrentCard(Card current){
 		this.current = current;
-		
+
 	}
-	
+
 	// ----- method overrider to find highest attribute value
 	// and choose that attribute
 	@Override
 	public int chooseAttr(){
-		
+
 		Attribute currentAttr = current.getAttr(0);
 		int maxVal = currentAttr.getVal();
 		int bestAttr = currentAttr.getAttrNum();
@@ -29,7 +33,7 @@ class SmartComputer extends Player {
 				maxVal = attrVal;
 			} // end of if statement
 		} // end of for loop
-			
+
 		return bestAttr;
 	} // end of chooseAttr() method
 }

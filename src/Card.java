@@ -1,25 +1,31 @@
+/*  Author: Callum Warrilow (20106703)
+ *  Class Desc: Card Class of Card Game that creates card and holds
+ *  attributes of that card.
+ *  Date: 5/11/16
+ */
+
 // ------ IMPORT STATEMENTS ------
 import java.util.Random;
 
 class Card {
-    
+
 	// -------- FIELDS ---------
     private final String NAME;
     private Attribute[] attrArray;
-    
+
     // ---------- CONSTRUCTOR ----------
     public Card(String name, int attrNum, String gameType){
         this.NAME = name;
-        
+
         setAttr(attrNum, gameType);
-        
+
     } // end of CONSTRUCTOR
 
     // ----- method to return the name of the card
     public String getName(){
         return NAME;
     } // end of getName() method
-    
+
     // ----- method to set attributes for the card
     void setAttr(int attrNum, String gameType){
 		attrArray = new Attribute[attrNum];
@@ -45,7 +51,7 @@ class Card {
     public Attribute getAttr(int attr){
         return attrArray[attr];
     } // end of getAttr() method
-    
+
     // ----- method override to print Card Name
     // in specified format
     @Override

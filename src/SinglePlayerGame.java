@@ -1,9 +1,15 @@
+/*  Author: Callum Warrilow (20106703)
+ *  Class Desc: SinglePlayer implementation of Game class to
+ *  play Card game between a human and computer player only.
+ *  Date: 5/11/16
+ */
+
 // ------ IMPORT STATEMENTS ------
 import java.util.Scanner;
 
 class SinglePlayerGame implements Game {
 
-	// -------- FIELDS ---------
+    // -------- FIELDS ---------
     private Human hPlayer;
     private Player comp;
     private Scanner uInput = new Scanner(System.in);
@@ -12,7 +18,7 @@ class SinglePlayerGame implements Game {
     public SinglePlayerGame(){
     } // end of CONSTRUCTOR
 
-	public int startGame(){
+    public int startGame(){
         String pName;
 
         System.out.println("----- Welcome to Card Game -----");
@@ -34,24 +40,24 @@ class SinglePlayerGame implements Game {
 
         switch(compType){
         case 1:
-        	System.out.println("This Feature IS NOT HERE");
-        	break;
+            System.out.println("This Feature IS NOT HERE");
+            break;
         case 2:
-			RandomComputer randComp = new RandomComputer("COMP");
-        	comp = randComp;
-        	break;
+            RandomComputer randComp = new RandomComputer("COMP");
+            comp = randComp;
+            break;
         case 3:
-        	SmartComputer smartComp = new SmartComputer("COMP");
-        	comp = smartComp;
-        	break;
+            SmartComputer smartComp = new SmartComputer("COMP");
+            comp = smartComp;
+            break;
         }
 
         createCard();
 
         delay(2000);
 
-		System.out.println("\n----- START GAME -----\n");
-		playRound(0);
+        System.out.println("\n----- START GAME -----\n");
+        playRound(0);
 
         uInput.close();
 
@@ -60,7 +66,7 @@ class SinglePlayerGame implements Game {
 
     //----- method to create cards and assign them to decks
     private void createCard(){
-    	Card[] cardDealer = new Card[10];
+        Card[] cardDealer = new Card[10];
         cardDealer[0] = new Card("Tiamat", 6, "dnd");
         cardDealer[1] = new Card("Drizzt Do'Urden", 6, "dnd");
         cardDealer[2] = new Card("Acercerak", 6, "dnd");
@@ -73,96 +79,96 @@ class SinglePlayerGame implements Game {
         cardDealer[9] = new Card("Regis", 6, "dnd");
 
         for(int i = 0; i < 10; i++){
-			hPlayer.deck.add(cardDealer[i]);
-			comp.deck.add(cardDealer[++i]);
+            hPlayer.deck.add(cardDealer[i]);
+            comp.deck.add(cardDealer[++i]);
         } // end of for loop
     } // end of createCard() method
 
     // ----- method containing game procedure
     private void playRound(int roundNum){
-		int choice;
+        int choice;
 
-		System.out.println("---- ROUND " + roundNum + " ----");
-		System.out.println("------------------");
+        System.out.println("---- ROUND " + roundNum + " ----");
+        System.out.println("------------------");
 
-		System.out.println("YOUR DECK= ");
-		hPlayer.deck.forEach(System.out::println);
-		System.out.println("------------------\n");
+        System.out.println("YOUR DECK= ");
+        hPlayer.deck.forEach(System.out::println);
+        System.out.println("------------------\n");
 
-		delay(2000);
+        delay(2000);
 
-		// Take cards from player and computer's decks
-    	Card hCard = hPlayer.deck.remove();
-    	Card cCard = comp.deck.remove();
+        // Take cards from player and computer's decks
+        Card hCard = hPlayer.deck.remove();
+        Card cCard = comp.deck.remove();
 
-    	// print the player's card name and attributes
-    	printCard(hCard);
+        // print the player's card name and attributes
+        printCard(hCard);
 
-    	delay(2000);
+        delay(2000);
 
-    	// check whose turn it is
-    	if(roundNum % 2 == 0){
-    		choice = hPlayer.chooseAttr();
-			choice--;		// make choice reference array position
-		}else{
-			System.out.println(comp.getPName() + " is choosing...");
-			delay(3000);
-			if(comp instanceof SmartComputer)
-				comp.getCurrentCard(cCard);
-			choice = comp.chooseAttr();
-			System.out.println(comp.getPName() + " chose Attr: " + choice);
-		} // end of if-else statement
+        // check whose turn it is
+        if(roundNum % 2 == 0){
+            choice = hPlayer.chooseAttr();
+            choice--;       // make choice reference array position
+        }else{
+            System.out.println(comp.getPName() + " is choosing...");
+            delay(3000);
+            if(comp instanceof SmartComputer)
+                comp.getCurrentCard(cCard);
+            choice = comp.chooseAttr();
+            System.out.println(comp.getPName() + " chose Attr: " + choice);
+        } // end of if-else statement
 
-    	// CARD COMPARISON
-    	compare(hCard, cCard, choice);
+        // CARD COMPARISON
+        compare(hCard, cCard, choice);
 
-		// check for empty decks and if none
-		// continue play
-		while(hPlayer.deck.size() != 0 && comp.deck.size() != 0){
-			roundNum++;
-			playRound(roundNum);
+        // check for empty decks and if none
+        // continue play
+        while(hPlayer.deck.size() != 0 && comp.deck.size() != 0){
+            roundNum++;
+            playRound(roundNum);
 
-		if(hPlayer.deck.size() == 0)
-			System.out.println("YOU LOSE");
-		else
-			System.out.println("YOU WIN");
-		}
+        if(hPlayer.deck.size() == 0)
+            System.out.println("YOU LOSE");
+        else
+            System.out.println("YOU WIN");
+        }
     } // end of playRound() method
 
     // ----- method to print Player Card Details to Screen
     private void printCard(Card hCard){
-		System.out.println(hCard);
-    	System.out.println("------------------");
-    	for(int i=0; i < 6; i++)
-			System.out.println("|" + hCard.getAttr(i) + "|");
-    	System.out.println("------------------\n");
+        System.out.println(hCard);
+        System.out.println("------------------");
+        for(int i=0; i < 6; i++)
+            System.out.println("|" + hCard.getAttr(i) + "|");
+        System.out.println("------------------\n");
     } // end of printCard() method
 
     // ----- method to compare cards and reassign
     // to winner's deck
     private void compare(Card hCard, Card cCard, int choice){
-		// ---------- COMPARE CARDS ----------
-		if(hCard.getAttr(choice).getVal() == cCard.getAttr(choice).getVal()){
-			System.out.println("DRAW");
-			comp.deck.add(cCard);
-			hPlayer.deck.add(hCard);
-		}else if(hCard.getAttr(choice).getVal() < cCard.getAttr(choice).getVal()){
-			System.out.println("FAIL");
-			comp.deck.add(cCard);
-			comp.deck.add(hCard);
-		}else{
-			System.out.println("SUCCESS");
-			hPlayer.deck.add(hCard);
-			hPlayer.deck.add(cCard);
-		} // end of CARD COMPARISON
+        // ---------- COMPARE CARDS ----------
+        if(hCard.getAttr(choice).getVal() == cCard.getAttr(choice).getVal()){
+            System.out.println("DRAW");
+            comp.deck.add(cCard);
+            hPlayer.deck.add(hCard);
+        }else if(hCard.getAttr(choice).getVal() < cCard.getAttr(choice).getVal()){
+            System.out.println("FAIL");
+            comp.deck.add(cCard);
+            comp.deck.add(hCard);
+        }else{
+            System.out.println("SUCCESS");
+            hPlayer.deck.add(hCard);
+            hPlayer.deck.add(cCard);
+        } // end of CARD COMPARISON
 
-		System.out.println("\n------------------");
-		delay(3000);
+        System.out.println("\n------------------");
+        delay(3000);
     } // end of compare() method
 
     // ---- method to delay terminal output
     private static void delay(int millis){
-    	try {
+        try {
             Thread.sleep(millis);
         } catch (InterruptedException exp) {
         }

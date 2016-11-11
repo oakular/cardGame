@@ -1,0 +1,58 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A_NAME	src/Attribute.java	/^	private final String A_NAME;$/;"	f	class:Attribute	file:
+A_NUM	src/Attribute.java	/^	private final int A_NUM;$/;"	f	class:Attribute	file:
+Attribute	src/Attribute.java	/^	public Attribute(int aNum, String aName, int val){$/;"	m	class:Attribute
+Attribute	src/Attribute.java	/^public class Attribute {$/;"	c
+Card	src/Card.java	/^    public Card(String name, int attrNum, String gameType){$/;"	m	class:Card
+Card	src/Card.java	/^class Card {$/;"	c
+Game	src/Game.java	/^public interface Game {$/;"	i
+Human	src/Human.java	/^	public Human(String pName) {$/;"	m	class:Human
+Human	src/Human.java	/^public class Human extends Player {$/;"	c
+Main	src/Main.java	/^public class Main {$/;"	c
+MultiPlayerGame	src/MultiPlayerGame.java	/^class MultiPlayerGame implements Game {$/;"	c
+NAME	src/Card.java	/^    private final String NAME;$/;"	f	class:Card	file:
+P_NAME	src/Player.java	/^    protected final String P_NAME;$/;"	f	class:Player
+Player	src/Player.java	/^    public Player(String pName){$/;"	m	class:Player
+Player	src/Player.java	/^public class Player extends LinkedList{$/;"	c
+RandomComputer	src/RandomComputer.java	/^	public RandomComputer(String pName) {$/;"	m	class:RandomComputer
+RandomComputer	src/RandomComputer.java	/^public class RandomComputer extends Player {$/;"	c
+SinglePlayerGame	src/SinglePlayerGame.java	/^    public SinglePlayerGame(){$/;"	m	class:SinglePlayerGame
+SinglePlayerGame	src/SinglePlayerGame.java	/^class SinglePlayerGame implements Game {$/;"	c
+SmartComputer	src/SmartComputer.java	/^	public SmartComputer(String pName) {$/;"	m	class:SmartComputer
+SmartComputer	src/SmartComputer.java	/^class SmartComputer extends Player {$/;"	c
+VAL	src/Attribute.java	/^	private final int VAL;$/;"	f	class:Attribute	file:
+attrArray	src/Card.java	/^    private Attribute[] attrArray;$/;"	f	class:Card	file:
+bottom	src/Player.java	/^    protected static int bottom = 0;$/;"	f	class:Player
+chooseAttr	src/Player.java	/^    public int chooseAttr(){$/;"	m	class:Player
+chooseAttr	src/RandomComputer.java	/^	public int chooseAttr(){$/;"	m	class:RandomComputer
+chooseAttr	src/SmartComputer.java	/^	public int chooseAttr(){$/;"	m	class:SmartComputer
+comp	src/SinglePlayerGame.java	/^    private Player comp;$/;"	f	class:SinglePlayerGame	file:
+compare	src/SinglePlayerGame.java	/^    private void compare(Card hCard, Card cCard, int choice){$/;"	m	class:SinglePlayerGame	file:
+createCard	src/SinglePlayerGame.java	/^    private void createCard(){$/;"	m	class:SinglePlayerGame	file:
+current	src/SmartComputer.java	/^	private Card current;$/;"	f	class:SmartComputer	file:
+deck	src/Player.java	/^    protected Queue<Card> deck;$/;"	f	class:Player
+deckSize	src/Player.java	/^    protected int deckSize;$/;"	f	class:Player
+delay	src/SinglePlayerGame.java	/^    private static void delay(int millis){$/;"	m	class:SinglePlayerGame	file:
+getAttr	src/Card.java	/^    public Attribute getAttr(int attr){$/;"	m	class:Card
+getAttrNum	src/Attribute.java	/^	int getAttrNum(){$/;"	m	class:Attribute
+getCurrentCard	src/Player.java	/^    void getCurrentCard(Card current){$/;"	m	class:Player
+getCurrentCard	src/SmartComputer.java	/^	void getCurrentCard(Card current){$/;"	m	class:SmartComputer
+getName	src/Card.java	/^    public String getName(){$/;"	m	class:Card
+getPName	src/Player.java	/^    String getPName(){$/;"	m	class:Player
+getVal	src/Attribute.java	/^	int getVal(){$/;"	m	class:Attribute
+hPlayer	src/SinglePlayerGame.java	/^    private Human hPlayer;$/;"	f	class:SinglePlayerGame	file:
+main	src/Main.java	/^	public static void main(String[] args){$/;"	m	class:Main
+playRound	src/SinglePlayerGame.java	/^    private void playRound(int roundNum){$/;"	m	class:SinglePlayerGame	file:
+printCard	src/SinglePlayerGame.java	/^    private void printCard(Card hCard){$/;"	m	class:SinglePlayerGame	file:
+setAttr	src/Card.java	/^    void setAttr(int attrNum, String gameType){$/;"	m	class:Card
+startGame	src/Game.java	/^    int startGame();$/;"	m	interface:Game
+startGame	src/SinglePlayerGame.java	/^    public int startGame(){$/;"	m	class:SinglePlayerGame
+toString	src/Attribute.java	/^	public String toString(){$/;"	m	class:Attribute
+toString	src/Card.java	/^    public String toString(){$/;"	m	class:Card
+top	src/Player.java	/^    protected static int top;$/;"	f	class:Player
+uInput	src/SinglePlayerGame.java	/^    private Scanner uInput = new Scanner(System.in);$/;"	f	class:SinglePlayerGame	file:
