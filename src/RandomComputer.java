@@ -1,9 +1,10 @@
-/*  Author: Callum Warrilow (20106703)
+/*  Author: Callum Warrilow (201068703)
  *  Class Desc: RandomComputer subclass of Player that implements methods
  *  in Player superclass.
  *  Date: 5/11/16
  */
 
+// ------ IMPORT STATEMENTS ------
 import java.util.Random;
 
 public class RandomComputer extends Player {
@@ -17,6 +18,8 @@ public class RandomComputer extends Player {
 	@Override
 	public int chooseAttr(){
 		Random rand = new Random();
+
+        // take a random number between 0 and 5
 		int compChoice = rand.nextInt(5) + 0;
 
 		System.out.println("COMP chooses " + compChoice);

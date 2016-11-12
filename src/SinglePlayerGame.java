@@ -1,4 +1,4 @@
-/*  Author: Callum Warrilow (20106703)
+/*  Author: Callum Warrilow (201068703)
  *  Class Desc: SinglePlayer implementation of Game class to
  *  play Card game between a human and computer player only.
  *  Date: 5/11/16
@@ -26,10 +26,13 @@ class SinglePlayerGame implements Game {
         System.out.print("Please Enter Your Name: ");
         pName = uInput.nextLine();
 
+        // instantiate players
         addPlayers(pName);
 
+        // assign cards to decks
         createCard();
 
+        // delay text output to terminal
         delay(2000);
 
         System.out.println("\n----- START GAME -----\n");
@@ -47,6 +50,7 @@ class SinglePlayerGame implements Game {
 
         delay(2000);
 
+        // instantiate computer based on difficulty
         System.out.println("Which Computer Player Will Be Your Opponent?");
         System.out.println("1. Easy Difficulty");
         System.out.println("2. Medium Difficulty");
@@ -55,14 +59,14 @@ class SinglePlayerGame implements Game {
         int compType = uInput.nextInt();
 
         switch(compType){
-        case 1:
+        case 1: // EASY
             System.out.println("This Feature IS NOT HERE");
             break;
-        case 2:
+        case 2: // MEDIUM
             RandomComputer randComp = new RandomComputer("COMP");
             comp = randComp;
             break;
-        case 3:
+        case 3: // HARD
             SmartComputer smartComp = new SmartComputer("COMP");
             comp = smartComp;
             break;
@@ -83,6 +87,8 @@ class SinglePlayerGame implements Game {
         cardDealer[8] = new Card("Wulfgar", 6, "dnd");
         cardDealer[9] = new Card("Regis", 6, "dnd");
 
+        // --- for loop to iterate through cardDealer array
+        // and assign cards to each player's deck
         for(int i = 0; i < 10; i++){
             hPlayer.deck.add(cardDealer[i]);
             comp.deck.add(cardDealer[++i]);
@@ -93,9 +99,11 @@ class SinglePlayerGame implements Game {
     private void playRound(int roundNum){
         int choice;
 
-        System.out.println("---- ROUND " + roundNum + " ----");
+        // print round number
+        System.out.println("---- ROUND " + (roundNum+1) + " ----");
         System.out.println("------------------");
 
+        // print out Human player's deck
         System.out.println("YOUR DECK= ");
         hPlayer.deck.forEach(System.out::println);
         System.out.println("------------------\n");
@@ -113,13 +121,19 @@ class SinglePlayerGame implements Game {
 
         // check whose turn it is
         if(roundNum % 2 == 0){
+            // HUMAN CHOICE
             choice = hPlayer.chooseAttr();
             choice--;       // make choice reference array position
         }else{
+            // COMPUTER CHOICE
             System.out.println(comp.getPName() + " is choosing...");
             delay(3000);
+
+            // allows SmartComputer to choose best attribute
+            // by giving it access to attribute values
             if(comp instanceof SmartComputer)
                 comp.getCurrentCard(cCard);
+
             choice = comp.chooseAttr();
             System.out.println(comp.getPName() + " chose Attr: " + choice);
         } // end of if-else statement
@@ -127,24 +141,29 @@ class SinglePlayerGame implements Game {
         // CARD COMPARISON
         compare(hCard, cCard, choice);
 
-        // check for empty decks and if none
-        // continue play
+        // --- while loop to  check for empty decks and
+        // if none continue play
         while(hPlayer.deck.size() != 0 && comp.deck.size() != 0){
             roundNum++;
             playRound(roundNum);
 
+        // break loop if a player has no cards left
+        if(hPlayer.deck.size() == 0 || comp.deck.size() == 0)
+            break;
+        } // end of while loop
+
+        // DETERMINE WINNER
         if(hPlayer.deck.size() == 0)
             System.out.println("YOU LOSE");
         else
             System.out.println("YOU WIN");
-        }
     } // end of playRound() method
 
     // ----- method to print Player Card Details to Screen
     private void printCard(Card hCard){
-        System.out.println(hCard);
+        System.out.println(hCard); // print card name
         System.out.println("------------------");
-        for(int i=0; i < 6; i++)
+        for(int i=0; i < 6; i++) // print card attributes
             System.out.println("|" + hCard.getAttr(i) + "|");
         System.out.println("------------------\n");
     } // end of printCard() method
@@ -178,5 +197,4 @@ class SinglePlayerGame implements Game {
         } catch (InterruptedException exp) {
         }
     } // end of delay() method
-
-} // end of Game Class
+} // end of SinglePlayerGame Class

@@ -13,7 +13,6 @@ class SmartComputer extends Player {
 
 	void getCurrentCard(Card current){
 		this.current = current;
-
 	}
 
 	// ----- method overrider to find highest attribute value
