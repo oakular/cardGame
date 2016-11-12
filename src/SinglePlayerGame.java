@@ -43,6 +43,8 @@ class SinglePlayerGame implements Game {
         return 0;
     } // end of startGame() method
 
+    // ---- method to create players by asking
+    // for names and difficulty
     private void addPlayers(String pName){
         hPlayer = new Human(pName);
 
@@ -58,6 +60,8 @@ class SinglePlayerGame implements Game {
         System.out.print("Enter a Number: ");
         int compType = uInput.nextInt();
 
+        // -- switch statement to select
+        // computer difficulty
         switch(compType){
         case 1: // EASY
             System.out.println("This Feature IS NOT HERE");

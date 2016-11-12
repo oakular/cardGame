@@ -1,5 +1,5 @@
 
-/*  Author: Callum Warrilow (20106703)
+/*  Author: Callum Warrilow (201068703)
  *  Class Desc: Attribute Class of Card Game that creates attribute
  *  for a Card and includes methods to get information on attribute.
  *  Date: 5/11/16
@@ -19,16 +19,18 @@ public class Attribute {
 		this.VAL = val;
 		}
 
-	// ----- method to return Attribute Value
+	// ---- method to return Attribute Value
 	int getVal(){
 		return VAL;
 	} // end of getVal() method
 
+    // ---- method to return the number of the attribute
+    // in a list of attributes (not its value)
 	int getAttrNum(){
 		return A_NUM;
 	}
 
-	// ----- method to override toString() to print out
+	// ---- method to override toString() to print out
 	// Attribute Values in a specific format
 	@Override
 	public String toString(){

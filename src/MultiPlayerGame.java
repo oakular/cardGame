@@ -17,8 +17,8 @@ class MultiPlayerGame implements Game {
     private List<Player> players = new ArrayList<Player>();
     private Scanner uInput = new Scanner(System.in);
 
+    // ---------- CONSTRUCTOR ----------
     public MultiPlayerGame(){
-
     } // end of CONSTRUCTOR
 
     // ---- method to create players and ask for
@@ -27,21 +27,28 @@ class MultiPlayerGame implements Game {
         int pNum;
         int cNum;
 
-        System.out.println("----- Welcome to Card Game -----");
+        // INTRODUCE GAME
         System.out.println("Please enter the number of Human players:");
         pNum = uInput.nextInt();
         System.out.println("Please enter the number of Computer players:");
         cNum = uInput.nextInt();
 
+        // create human and computer players
         addPlayers(pNum, cNum);
+
+        // assign cards to decks
         createCard();
 
         return 0;
     } // end of startGame() method
 
+    // ---- method to create players by asking
+    // for names and difficulty
     private void addPlayers(int pNum, int cNum){
         int count = 0;
 
+        // --- while loop to ask for Player names
+        // number of players is reached
         while(count != pNum){
             System.out.println("Please Enter Player " + (count+1) + "  Name: ");
             String pName = uInput.nextLine();
@@ -49,10 +56,12 @@ class MultiPlayerGame implements Game {
             players.add(player);
 
             count++;
-        } // end of for loop
+        } // end of while loop
 
         count = 0; // reset value of count
 
+        // --- while loop to ask for difficulty of
+        // each computer player
         while(count != cNum){
             System.out.println("What is the Difficulty of COMP" + (count+1) + "? ");
             System.out.println("1. Easy Difficulty");
@@ -61,6 +70,8 @@ class MultiPlayerGame implements Game {
             System.out.print("Enter a Number: ");
             int difficulty = uInput.nextInt();
 
+            // -- switch statement to select
+            // computer difficulty
             switch(difficulty){
             case 1:
                 System.out.println("This Feature IS NOT HERE");
@@ -76,7 +87,7 @@ class MultiPlayerGame implements Game {
             } // end of switch statement
 
             count++;
-        } // end of for loop
+        } // end of while loop
     } // end of addPlayers() method
 
     //----- method to create cards and assign them to decks
@@ -95,8 +106,14 @@ class MultiPlayerGame implements Game {
         cardList.add(new Card("Wulfgar", 6, "dnd"));
         cardList.add(new Card("Regis", 6, "dnd"));
 
+        // --- while loop to iterate
+        // through cardList
         while(cardDealer.hasNext()){
             Card cardToDeal = cardDealer.next();
+
+            // -- for loop to give a
+            //
+            // // -- for loop to give a
             for(Player playerToDeal : players){
                 playerToDeal.deck.add(cardToDeal);
                 cardDealer.remove();
