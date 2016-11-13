@@ -15,6 +15,7 @@ class SinglePlayerGame implements Game {
     // -------- FIELDS ---------
     /** Uses {@link Human} class to create a human player. */
     private Human hPlayer;     private Player comp;
+    /** Uses {@link Scanner} class to create scanner for input. */
     private Scanner uInput = new Scanner(System.in);
 
     // ----- CONSTRUCTOR -----
@@ -24,7 +25,7 @@ class SinglePlayerGame implements Game {
     public SinglePlayerGame(){
     } // end of CONSTRUCTOR
 
-    /** Method to create players and ask for
+    /** Method to create {@link Player Players} and ask for
         computer difficulty.
       */
     public int startGame(){
@@ -50,7 +51,7 @@ class SinglePlayerGame implements Game {
         return 0;
     } // end of startGame() method
 
-    /** Method to create players by asking
+    /** Method to create {@link Player Players} by asking
         for names and difficulty.
         @param pName - the Human player's name
       */
@@ -86,7 +87,7 @@ class SinglePlayerGame implements Game {
         } // end of switch statement
     } // end of addPlayers() method
 
-    /** Method to create cards and assign them to decks.
+    /** Method to create {@link Card Cards} and assign them to decks.
       */
     private void createCard(){
         Card[] cardDealer = new Card[10];
@@ -110,6 +111,8 @@ class SinglePlayerGame implements Game {
     } // end of createCard() method
 
     /** Method containing game procedure.
+     * Makes calls to {@link printCard(Card) printCard()},
+     * and {@link compare(Card, Card, int)} methods.
      * @param roundNum - the round number for this turn of play
      */
     private void playRound(int roundNum){
@@ -175,7 +178,8 @@ class SinglePlayerGame implements Game {
             System.out.println("YOU WIN");
     } // end of playRound() method
 
-    /** Method to print Player Card Details to Screen.
+    /** Method to print Player Card Details to Screen using
+     * the {@link Card#getAttr() getAttr() method}.
      * @param hCard - the current card in the Human player's hand
      */
     private void printCard(Card hCard){
@@ -187,6 +191,8 @@ class SinglePlayerGame implements Game {
     } // end of printCard() method
 
     /** Method to compare cards and reassign to winner's deck.
+     * Obtains values for each card by {@link Card#getAttr(int) getAttr()}
+     *  and {@link Attribute#getVal() methods}
      * @param hCard - the current card in the Human player's hand
      * @param cCard - the current card in the Computer player's hand
      * @param choice - the choice of attribute made by whose turn it is
@@ -212,6 +218,7 @@ class SinglePlayerGame implements Game {
     } // end of compare() method
 
     /** Method to delay terminal output.
+     * Utilises the {@link Thread#sleep(int) sleep} method
      * @param millis - the number of milliseconds to delay execution by
      */
     private static void delay(int millis){

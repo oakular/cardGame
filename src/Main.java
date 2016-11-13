@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     // ----------- MAIN METHOD ------------
-    /** Main method to start {@link Game} and choose
+    /** Main method to start {@link Game Game} and choose
      * game type. */
     public static void main(String[] args){
 
