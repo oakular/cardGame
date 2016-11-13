@@ -14,6 +14,7 @@ Game	src/Game.java	/^public interface Game {$/;"	i
 Human	src/Human.java	/^	public Human(String pName) {$/;"	m	class:Human
 Human	src/Human.java	/^public class Human extends Player {$/;"	c
 Main	src/Main.java	/^public class Main {$/;"	c
+MultiPlayerGame	src/MultiPlayerGame.java	/^    public MultiPlayerGame(){$/;"	m	class:MultiPlayerGame
 MultiPlayerGame	src/MultiPlayerGame.java	/^class MultiPlayerGame implements Game {$/;"	c
 NAME	src/Card.java	/^    private final String NAME;$/;"	f	class:Card	file:
 P_NAME	src/Player.java	/^    protected final String P_NAME;$/;"	f	class:Player
@@ -26,6 +27,8 @@ SinglePlayerGame	src/SinglePlayerGame.java	/^class SinglePlayerGame implements G
 SmartComputer	src/SmartComputer.java	/^	public SmartComputer(String pName) {$/;"	m	class:SmartComputer
 SmartComputer	src/SmartComputer.java	/^class SmartComputer extends Player {$/;"	c
 VAL	src/Attribute.java	/^	private final int VAL;$/;"	f	class:Attribute	file:
+addPlayers	src/MultiPlayerGame.java	/^    private void addPlayers(int pNum){$/;"	m	class:MultiPlayerGame	file:
+addPlayers	src/SinglePlayerGame.java	/^    private void addPlayers(String pName){$/;"	m	class:SinglePlayerGame	file:
 attrArray	src/Card.java	/^    private Attribute[] attrArray;$/;"	f	class:Card	file:
 bottom	src/Player.java	/^    protected static int bottom = 0;$/;"	f	class:Player
 chooseAttr	src/Player.java	/^    public int chooseAttr(){$/;"	m	class:Player
@@ -48,11 +51,14 @@ getVal	src/Attribute.java	/^	int getVal(){$/;"	m	class:Attribute
 hPlayer	src/SinglePlayerGame.java	/^    private Human hPlayer;$/;"	f	class:SinglePlayerGame	file:
 main	src/Main.java	/^	public static void main(String[] args){$/;"	m	class:Main
 playRound	src/SinglePlayerGame.java	/^    private void playRound(int roundNum){$/;"	m	class:SinglePlayerGame	file:
+players	src/MultiPlayerGame.java	/^    private List<Player> players = new ArrayList<Player>();$/;"	f	class:MultiPlayerGame	file:
 printCard	src/SinglePlayerGame.java	/^    private void printCard(Card hCard){$/;"	m	class:SinglePlayerGame	file:
 setAttr	src/Card.java	/^    void setAttr(int attrNum, String gameType){$/;"	m	class:Card
 startGame	src/Game.java	/^    int startGame();$/;"	m	interface:Game
+startGame	src/MultiPlayerGame.java	/^    public int startGame(){$/;"	m	class:MultiPlayerGame
 startGame	src/SinglePlayerGame.java	/^    public int startGame(){$/;"	m	class:SinglePlayerGame
 toString	src/Attribute.java	/^	public String toString(){$/;"	m	class:Attribute
 toString	src/Card.java	/^    public String toString(){$/;"	m	class:Card
 top	src/Player.java	/^    protected static int top;$/;"	f	class:Player
+uInput	src/MultiPlayerGame.java	/^    private Scanner uInput = new Scanner(System.in);$/;"	f	class:MultiPlayerGame	file:
 uInput	src/SinglePlayerGame.java	/^    private Scanner uInput = new Scanner(System.in);$/;"	f	class:SinglePlayerGame	file:
