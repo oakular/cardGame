@@ -1,19 +1,30 @@
 /*  Author: Callum Warrilow (201068703)
- *  Class Desc: Card Class of Card Game that creates card and holds
- *  attributes of that card.
  *  Date: 5/11/16
  */
 
 // ------ IMPORT STATEMENTS ------
 import java.util.Random;
 
+/** Class Desc: Card Class of Card Game that creates a card and holds
+ *  attributes of that card.
+ */
 class Card {
 
     // -------- FIELDS ---------
+    /** Holds Card name. */
     private final String NAME;
+
+    /** Uses {@link Attribute Attribute} to
+     * create an array of {@link Attribute Attribute}.
+     */
     private Attribute[] attrArray;
 
     // ---------- CONSTRUCTOR ----------
+    /** Constructor to create Card as an object.
+     * @param name - the name of the Card
+     * @param attrNum - the number of attributes on the Card
+     * @param gameType - the type/genre of game the Card is playable in
+     */
     public Card(String name, int attrNum, String gameType){
         this.NAME = name;
 
@@ -22,12 +33,17 @@ class Card {
 
     } // end of CONSTRUCTOR
 
-    // ----- method to return the name of the card
+    /** Method to return the name of the Card.
+     * @return Name of the Card
     public String getName(){
         return NAME;
     } // end of getName() method
 
-    // ----- method to set attributes for the card
+    /** Method to set attributes for the card.
+     * Assigns Attributes to the card based on the game type given.
+     * @param attrNum - the number of attributes on the Card
+     * @param gameType - the type/genre of game the Card is playable in
+     */
     void setAttr(int attrNum, String gameType){
         attrArray = new Attribute[attrNum];
         String[] attrName = new String[attrNum];
@@ -51,13 +67,21 @@ class Card {
         } // end of for loop
     } // end of setAttr() method
 
-    // ----- method to return a specific attribute
+    /** Method to return a specific attribute.
+     * Returns the Attribute name based on the attribute number
+     * passed as a parameter.
+     * @param attr - the attr number for which the name is to be returned
+     * @return Name of the attribute passed as a parameter
+     */
     public Attribute getAttr(int attr){
         return attrArray[attr];
     } // end of getAttr() method
 
-    // ----- method override to print Card Name
-    // in specified format
+    /** Method override to print Card Name in specified format.
+     * Overrides {@link Object#toString toString} method to print
+     * Card name.
+     * @return The name of the card upon which the method is called.
+     */
     @Override
     public String toString(){
         return (NAME);

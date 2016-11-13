@@ -7,7 +7,7 @@
 
 public interface Game {
 
-    /** Abstract method to begin game procedure.
+    /** Abstract method to begin {@link Game game} procedure.
      */
     int startGame();
 } // end of Game interface
