@@ -2,8 +2,8 @@
  *  Date: 5/11/16
  */
 
-/**    Class Desc: Main Class of Card Game to instantiate new
-  *    game. */
+/** Class Desc: Main Class of Card Game to instantiate new
+ * game. */
 
 import java.util.Scanner;
 

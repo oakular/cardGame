@@ -151,7 +151,7 @@ class SinglePlayerGame implements Game {
             // allows SmartComputer to choose best attribute
             // by giving it access to attribute values
             if(comp instanceof SmartComputer)
-                comp.getCurrentCard(cCard);
+                comp.setCurrentCard(cCard);
 
             choice = comp.chooseAttr();
             System.out.println(comp.getPName() + " chose Attr: " + choice);
