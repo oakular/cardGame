@@ -84,6 +84,8 @@ class SinglePlayerGame implements Game {
         switch(compType){
         case 1: // EASY
             dumbComputer = true;
+            RandomComputer dumbComp = new RandomComputer("COMP");
+            comp = dumbComp;
             break;
         case 2: // MEDIUM
             RandomComputer randComp = new RandomComputer("COMP");
@@ -183,8 +185,9 @@ class SinglePlayerGame implements Game {
                     comp.setCurrentCard(cCard);
 
                 choice = comp.chooseAttr();
-                System.out.println(comp.getPName() + " chose Attr: " + (choice-1));
                 } // end of if-else statement
+
+            System.out.println(comp.getPName() + " chose Attr: " + (choice-1));
         } // end of if-else statement
 
         // CARD COMPARISON
