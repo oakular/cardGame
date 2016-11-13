@@ -93,7 +93,6 @@ class MultiPlayerGame implements Game {
     //----- method to create cards and assign them to decks
     private void createCard(){
         CopyOnWriteArrayList<Card> cardList = new CopyOnWriteArrayList<>();
-        Iterator<Card> cardDealer = cardList.iterator();
 
         cardList.add(new Card("Tiamat", 6, "dnd"));
         cardList.add(new Card("Drizzt Do'Urden", 6, "dnd"));
@@ -106,19 +105,11 @@ class MultiPlayerGame implements Game {
         cardList.add(new Card("Wulfgar", 6, "dnd"));
         cardList.add(new Card("Regis", 6, "dnd"));
 
-        // --- while loop to iterate
-        // through cardList
-        while(cardDealer.hasNext()){
-            Card cardToDeal = cardDealer.next();
-
-            // -- for loop to give a
-            //
-            // // -- for loop to give a
-            for(Player playerToDeal : players){
-                playerToDeal.deck.add(cardToDeal);
-                cardDealer.remove();
-            } // end of for loop
-        } // end of while loop
+        // -- for loop to give a
+        for(Card cardToDeal : cardDealer){
+            playerToDeal = players.get();
+            cardDealer.remove();
+        } // end of for loop
 
         players.get(0).deck.forEach(System.out::println);
     } // end of createCard() method
