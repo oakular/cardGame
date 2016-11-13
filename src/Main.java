@@ -1,14 +1,17 @@
 /*  Author: Callum Warrilow (20106703)
- *  Class Desc: Main Class of Card Game to instantiate new
- *  game.
  *  Date: 5/11/16
  */
+
+/**    Class Desc: Main Class of Card Game to instantiate new
+  *    game. */
 
 import java.util.Scanner;
 
 public class Main {
 
     // ----------- MAIN METHOD ------------
+    /** Main method to start {@link Game} and choose
+     * game type. */
     public static void main(String[] args){
 
         Scanner gameTypeInput = new Scanner(System.in);

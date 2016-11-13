@@ -1,7 +1,10 @@
 /*  Author: Callum Warrilow (201068703)
+ *  Date: 5/11/16
+ */
+
+/**
  *  Class Desc: SinglePlayer implementation of Game class to
  *  play Card game between a human and computer player only.
- *  Date: 5/11/16
  */
 
 // ------ IMPORT STATEMENTS ------
@@ -10,16 +13,20 @@ import java.util.Scanner;
 class SinglePlayerGame implements Game {
 
     // -------- FIELDS ---------
-    private Human hPlayer;
-    private Player comp;
+    /** Uses {@link Human} class to create a human player. */
+    private Human hPlayer;     private Player comp;
     private Scanner uInput = new Scanner(System.in);
 
     // ----- CONSTRUCTOR -----
+    /** Constructor to create instance of Singleplayer game and then have
+        startGame() called on it by Main class
+      */
     public SinglePlayerGame(){
     } // end of CONSTRUCTOR
 
-    // ---- method to create players and ask for
-    // computer difficulty
+    /** Method to create players and ask for
+        computer difficulty.
+      */
     public int startGame(){
         String pName;
 
@@ -43,8 +50,10 @@ class SinglePlayerGame implements Game {
         return 0;
     } // end of startGame() method
 
-    // ---- method to create players by asking
-    // for names and difficulty
+    /** Method to create players by asking
+        for names and difficulty.
+        @param pName - the Human player's name
+      */
     private void addPlayers(String pName){
         hPlayer = new Human(pName);
 
@@ -77,7 +86,8 @@ class SinglePlayerGame implements Game {
         } // end of switch statement
     } // end of addPlayers() method
 
-    //----- method to create cards and assign them to decks
+    /** Method to create cards and assign them to decks.
+      */
     private void createCard(){
         Card[] cardDealer = new Card[10];
         cardDealer[0] = new Card("Tiamat", 6, "dnd");
@@ -99,7 +109,9 @@ class SinglePlayerGame implements Game {
         } // end of for loop
     } // end of createCard() method
 
-    // ----- method containing game procedure
+    /** Method containing game procedure.
+     * @param roundNum - the round number for this turn of play
+     */
     private void playRound(int roundNum){
         int choice;
 
@@ -163,7 +175,9 @@ class SinglePlayerGame implements Game {
             System.out.println("YOU WIN");
     } // end of playRound() method
 
-    // ----- method to print Player Card Details to Screen
+    /** Method to print Player Card Details to Screen.
+     * @param hCard - the current card in the Human player's hand
+     */
     private void printCard(Card hCard){
         System.out.println(hCard); // print card name
         System.out.println("------------------");
@@ -172,8 +186,11 @@ class SinglePlayerGame implements Game {
         System.out.println("------------------\n");
     } // end of printCard() method
 
-    // ----- method to compare cards and reassign
-    // to winner's deck
+    /** Method to compare cards and reassign to winner's deck.
+     * @param hCard - the current card in the Human player's hand
+     * @param cCard - the current card in the Computer player's hand
+     * @param choice - the choice of attribute made by whose turn it is
+     */
     private void compare(Card hCard, Card cCard, int choice){
         // ---------- COMPARE CARDS ----------
         if(hCard.getAttr(choice).getVal() == cCard.getAttr(choice).getVal()){
@@ -194,7 +211,9 @@ class SinglePlayerGame implements Game {
         delay(3000);
     } // end of compare() method
 
-    // ---- method to delay terminal output
+    /** Method to delay terminal output.
+     * @param millis - the number of milliseconds to delay execution by
+     */
     private static void delay(int millis){
         try {
             Thread.sleep(millis);
