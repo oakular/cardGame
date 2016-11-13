@@ -14,9 +14,14 @@ class SinglePlayerGame implements Game {
 
     // -------- FIELDS ---------
     /** Uses {@link Human} class to create a human player. */
-    private Human hPlayer;     private Player comp;
+    private Human hPlayer;
+    /** Uses {@link Player} class to create a computer player. */
+    private Player comp;
     /** Uses {@link Scanner} class to create scanner for input. */
     private Scanner uInput = new Scanner(System.in);
+    /** A boolean to set the dumbComputer mode
+     * to <code>true</code> or <code>false</code>. */
+    boolean dumbComputer = false;
 
     // ----- CONSTRUCTOR -----
     /** Constructor to create instance of Singleplayer game and then have
@@ -78,7 +83,7 @@ class SinglePlayerGame implements Game {
         // computer difficulty
         switch(compType){
         case 1: // EASY
-            System.out.println("This Feature IS NOT HERE");
+            dumbComputer = true;
             break;
         case 2: // MEDIUM
             RandomComputer randComp = new RandomComputer("COMP");
@@ -165,17 +170,21 @@ class SinglePlayerGame implements Game {
             choice = hPlayer.chooseAttr();
             choice--;       // make choice reference array position
         }else{
-            // COMPUTER CHOICE
             System.out.println(comp.getPName() + " is choosing...");
             wait(3000);
 
-            // allows SmartComputer to choose best attribute
-            // by giving it access to attribute values
-            if(comp instanceof SmartComputer)
-                comp.setCurrentCard(cCard);
+            // COMPUTER CHOICE
+            if(dumbComputer == true){
+                choice = 3;
+            }else{
+                // allows SmartComputer to choose best attribute
+                // by giving it access to attribute values
+                if(comp instanceof SmartComputer)
+                    comp.setCurrentCard(cCard);
 
-            choice = comp.chooseAttr();
-            System.out.println(comp.getPName() + " chose Attr: " + choice);
+                choice = comp.chooseAttr();
+                System.out.println(comp.getPName() + " chose Attr: " + (choice-1));
+                } // end of if-else statement
         } // end of if-else statement
 
         // CARD COMPARISON
