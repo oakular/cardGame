@@ -34,7 +34,7 @@ class Card {
     } // end of CONSTRUCTOR
 
     /** Method to return the name of the Card.
-     * @return Name of the Card
+     * @return Name of the Card */
     public String getName(){
         return NAME;
     } // end of getName() method
@@ -57,7 +57,14 @@ class Card {
             attrName[3] = "INT";
             attrName[4] = "WIS";
             attrName[5] = "CHA";
-        } // end of if statement
+        }else{
+            attrName[0] = "SPEED";
+            attrName[1] = "HORSEPWR";
+            attrName[2] = "TORQUE";
+            attrName[3] = "PRICE";
+            attrName[4] = "STYLE";
+            attrName[5] = "SAFETY";
+        } // end of if-else statement
 
         // --- for loop to add random values to
         // attributes

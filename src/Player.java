@@ -25,8 +25,8 @@ public class Player extends LinkedList{
         deck = new LinkedList<Card>();
     } // end of CONSTRUCTOR
 
-    void getCurrentCard(Card current){
-    	
+    void setCurrentCard(Card current){
+
     }
     // ---- method to allow player to choose
     // attribute from card

@@ -54,6 +54,6 @@ public class Attribute {
      */
     @Override
     public String toString(){
-        return ((A_NUM +1) + ". " + A_NAME + "=\t" + VAL);
+        return ((A_REF_NUM +1) + ". " + A_NAME + "=\t" + VAL);
     } // end of toString() method
 } // end of Attribute Class

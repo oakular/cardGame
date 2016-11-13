@@ -18,9 +18,9 @@ public class Main {
         Game game;
 
         System.out.println("----- Welcome to Card Game -----");
-        System.out.println("Single Player or Multiplayer: ");
         System.out.println("1. Single Player");
-        System.out.println("2. Multiplayer");
+        System.out.println("2. Multiplayer (not fully working; see source code)");
+        System.out.print("Single Player or Multiplayer: ");
         int gameType = gameTypeInput.nextInt();
 
         if(gameType == 1){

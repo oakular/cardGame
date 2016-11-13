@@ -28,7 +28,7 @@ class SinglePlayerGame implements Game {
     /** Method to create {@link Player Players} and ask for
         computer difficulty.
       */
-    public int startGame(){
+    public void startGame(){
         String pName;
 
         System.out.print("Please Enter Your Name: ");
@@ -37,18 +37,22 @@ class SinglePlayerGame implements Game {
         // instantiate players
         addPlayers(pName);
 
-        // assign cards to decks
-        createCard();
+        System.out.println("Which genre would you like to play?");
+        System.out.println("1. Dungeons & Dragons Characters");
+        System.out.println("2. Cars");
+        int gameType = uInput.nextInt();
 
-        // delay text output to terminal
-        delay(2000);
+        // assign cards to decks
+        createCard(gameType);
+
+        // wait text output to terminal
+        wait(2000);
 
         System.out.println("\n----- START GAME -----\n");
         playRound(0);
 
         uInput.close();
 
-        return 0;
     } // end of startGame() method
 
     /** Method to create {@link Player Players} by asking
@@ -60,7 +64,7 @@ class SinglePlayerGame implements Game {
 
         System.out.println("Welcome " + hPlayer.getPName() + "\n");
 
-        delay(2000);
+        wait(2000);
 
         // instantiate computer based on difficulty
         System.out.println("Which Computer Player Will Be Your Opponent?");
@@ -88,9 +92,14 @@ class SinglePlayerGame implements Game {
     } // end of addPlayers() method
 
     /** Method to create {@link Card Cards} and assign them to decks.
+     * Takes the chosen genre of card and uses for loop to iterate
+     * through the deck and assign cards evenly among the two players.
+     * @param genre - The genre of cards to play the game with.
       */
-    private void createCard(){
+    private void createCard(int genre){
         Card[] cardDealer = new Card[10];
+
+        if(genre == 1){ // DND CHARACTERS
         cardDealer[0] = new Card("Tiamat", 6, "dnd");
         cardDealer[1] = new Card("Drizzt Do'Urden", 6, "dnd");
         cardDealer[2] = new Card("Acercerak", 6, "dnd");
@@ -101,6 +110,18 @@ class SinglePlayerGame implements Game {
         cardDealer[7] = new Card("Xanathar", 6, "dnd");
         cardDealer[8] = new Card("Wulfgar", 6, "dnd");
         cardDealer[9] = new Card("Regis", 6, "dnd");
+        }else{ // CARS
+        cardDealer[0] = new Card("Porsche", 6, "cars");
+        cardDealer[1] = new Card("Ferrari", 6, "cars");
+        cardDealer[2] = new Card("Renault", 6, "cars");
+        cardDealer[3] = new Card("Corvette", 6, "cars");
+        cardDealer[4] = new Card("Ford", 6, "cars");
+        cardDealer[5] = new Card("Mercedes", 6, "cars");
+        cardDealer[6] = new Card("Volkswagon", 6, "cars");
+        cardDealer[7] = new Card("Toyota", 6, "cars");
+        cardDealer[8] = new Card("Vauxhall", 6, "cars");
+        cardDealer[9] = new Card("Citroen", 6, "cars");
+        }
 
         // --- for loop to iterate through cardDealer array
         // and assign cards to each player's deck
@@ -112,7 +133,7 @@ class SinglePlayerGame implements Game {
 
     /** Method containing game procedure.
      * Makes calls to {@link printCard(Card) printCard()},
-     * and {@link compare(Card, Card, int)} methods.
+     * and {@link compare(Card, Card, int), compare()} methods.
      * @param roundNum - the round number for this turn of play
      */
     private void playRound(int roundNum){
@@ -127,16 +148,16 @@ class SinglePlayerGame implements Game {
         hPlayer.deck.forEach(System.out::println);
         System.out.println("------------------\n");
 
-        delay(2000);
+        wait(2000);
 
         // Take cards from player and computer's decks
         Card hCard = hPlayer.deck.remove();
         Card cCard = comp.deck.remove();
 
-        // print the player's card name and attributes
+        // print the Human's card name and attributes
         printCard(hCard);
 
-        delay(2000);
+        wait(2000);
 
         // check whose turn it is
         if(roundNum % 2 == 0){
@@ -146,7 +167,7 @@ class SinglePlayerGame implements Game {
         }else{
             // COMPUTER CHOICE
             System.out.println(comp.getPName() + " is choosing...");
-            delay(3000);
+            wait(3000);
 
             // allows SmartComputer to choose best attribute
             // by giving it access to attribute values
@@ -163,12 +184,13 @@ class SinglePlayerGame implements Game {
         // --- while loop to  check for empty decks and
         // if none continue play
         while(hPlayer.deck.size() != 0 && comp.deck.size() != 0){
+            // break loop if a player has no cards left
+            if(hPlayer.deck.size() == 0 || comp.deck.size() == 0)
+                break;
+
+            // otherwise continue play
             roundNum++;
             playRound(roundNum);
-
-        // break loop if a player has no cards left
-        if(hPlayer.deck.size() == 0 || comp.deck.size() == 0)
-            break;
         } // end of while loop
 
         // DETERMINE WINNER
@@ -204,27 +226,29 @@ class SinglePlayerGame implements Game {
             comp.deck.add(cCard);
             hPlayer.deck.add(hCard);
         }else if(hCard.getAttr(choice).getVal() < cCard.getAttr(choice).getVal()){
-            System.out.println("FAIL");
+            System.out.println("YOU LOSE THE ROUND");
+            System.out.println("COMP GAINS THE CARD: " + hCard.getName());
             comp.deck.add(cCard);
             comp.deck.add(hCard);
         }else{
-            System.out.println("SUCCESS");
+            System.out.println("YOU WIN THE ROUND");
+            System.out.println("YOU GAIN THE CARD: " + cCard.getName());
             hPlayer.deck.add(hCard);
             hPlayer.deck.add(cCard);
         } // end of CARD COMPARISON
 
         System.out.println("\n------------------");
-        delay(3000);
+        wait(3000);
     } // end of compare() method
 
     /** Method to delay terminal output.
      * Utilises the {@link Thread#sleep(int) sleep} method
-     * @param millis - the number of milliseconds to delay execution by
+     * @param millis - the number of milliseconds to wait execution by
      */
-    private static void delay(int millis){
+    private static void wait(int millis){
         try {
             Thread.sleep(millis);
         } catch (InterruptedException exp) {
         }
-    } // end of delay() method
+    } // end of wait() method
 } // end of SinglePlayerGame Class
